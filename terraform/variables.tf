@@ -48,7 +48,6 @@ variable "ssh_key_name" {
 variable "allowed_ssh_cidr" {
   description = "CIDR block allowed for SSH access (e.g. your IP/32)"
   type        = string
-  default     = "0.0.0.0/0"
 }
 
 variable "openai_api_key" {
@@ -69,9 +68,8 @@ variable "jwt_secret" {
 }
 
 variable "allowed_email_domain" {
-  description = "Optional Google email domain allowed to sign in; empty allows any verified Google account"
+  description = "Google email domain allowed to sign in"
   type        = string
-  default     = ""
 }
 
 variable "app_repo_url" {

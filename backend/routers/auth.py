@@ -45,11 +45,13 @@ async def google_login(body: GoogleLoginRequest):
         logger.warning("Google token verification failed: %s", exc)
         raise HTTPException(status_code=401, detail="Invalid Google token")
 
-    email = id_info.get("email", "")
+    email = id_info.get("email", "").strip().lower()
     if not id_info.get("email_verified"):
         raise HTTPException(status_code=403, detail="Google email is not verified")
     allowed_domain = os.getenv("ALLOWED_EMAIL_DOMAIN", "").strip().lower()
-    if allowed_domain and not email.endswith(f"@{allowed_domain}"):
+    if not allowed_domain:
+        raise HTTPException(status_code=503, detail="ALLOWED_EMAIL_DOMAIN is not configured")
+    if not email.endswith(f"@{allowed_domain}"):
         raise HTTPException(
             status_code=403,
             detail=f"Only @{allowed_domain} accounts are allowed",

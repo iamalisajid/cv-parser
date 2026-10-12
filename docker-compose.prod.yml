@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile.backend
     env_file: .env
     environment:
-      CORS_ORIGINS: "*"
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
     volumes:
       - ./creds:/app/creds
       - ./cvs:/app/cvs

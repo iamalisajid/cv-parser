@@ -2,6 +2,7 @@
 .env
 .env.*
 !.env.example
+.venv/
 frontend/.env
 frontend/.env.*
 frontend/node_modules
@@ -11,6 +12,9 @@ __pycache__
 *.egg-info
 creds/
 service_account.json
+service_account*.json
+*credentials*.json
+*token*.json
 *.pem
 *.key
 *.p12
@@ -18,7 +22,12 @@ service_account.json
 cvs/
 output/
 processed_rows.json
-sample/*.pdf
+sample/*
+!sample/example-workers.csv
+*.pdf
+*.docx
 terraform/.terraform
 terraform/*.tfstate*
-terraform/terraform.tfvars
+terraform/*.tfvars
+terraform/*.tfvars.json
+terraform/*.tfplan

@@ -5,11 +5,11 @@ db_name           = "cvparser"
 db_username       = "cvparser"
 db_password       = "CHANGE_ME_TO_A_STRONG_PASSWORD"
 ssh_key_name      = "my-key-pair"
-allowed_ssh_cidr  = "0.0.0.0/0"
+allowed_ssh_cidr  = "REPLACE_WITH_YOUR_IP/32"
 openai_api_key    = "REPLACE_ME"
 google_client_id  = ""
 jwt_secret        = "REPLACE_ME_WITH_LONG_RANDOM_VALUE"
-allowed_email_domain = ""
+allowed_email_domain = "example.com"
 
 # Optional: set to auto-clone and deploy on EC2 boot
 # app_repo_url    = "https://github.com/your-org/cv-parser.git"

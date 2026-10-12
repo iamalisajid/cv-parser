@@ -2,15 +2,21 @@
 .env
 .env.*
 !.env.example
+.venv/
 frontend/.env
 frontend/.env.*
 creds/
 service_account.json
+service_account*.json
+*credentials*.json
+*token*.json
 *.pem
 *.key
 *.p12
 *.pfx
-terraform/terraform.tfvars
+terraform/*.tfvars
+terraform/*.tfvars.json
+terraform/*.tfplan
 terraform/*.tfstate*
 terraform/.terraform/
 
@@ -18,9 +24,10 @@ terraform/.terraform/
 cvs/
 output/
 processed_rows.json
-sample/*.csv
+sample/*
 !sample/example-workers.csv
-sample/*.pdf
+*.pdf
+*.docx
 *.sqlite
 *.sqlite3
 

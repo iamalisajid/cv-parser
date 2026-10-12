@@ -19,7 +19,7 @@ The included `sample/example-workers.csv` contains fictional data only. Put CV P
 
 ## Web app
 
-The web app uses PostgreSQL and Google sign-in. Set `GOOGLE_CLIENT_ID`, `VITE_GOOGLE_CLIENT_ID`, and a random `JWT_SECRET` of at least 32 characters in `.env`. Set `ALLOWED_EMAIL_DOMAIN` to restrict sign-in to one Google Workspace domain; leave it empty to allow any verified Google account. Set the matching `VITE_ALLOWED_EMAIL_DOMAIN` to show the restriction on the login page.
+The web app uses PostgreSQL and Google sign-in. Set `GOOGLE_CLIENT_ID`, `VITE_GOOGLE_CLIENT_ID`, and a random `JWT_SECRET` of at least 32 characters in `.env`. Set `ALLOWED_EMAIL_DOMAIN` to the Google email domain permitted to sign in; sign-in is disabled until this is configured. Set the matching `VITE_ALLOWED_EMAIL_DOMAIN` to show the restriction on the login page.
 
 For local development, start PostgreSQL with `docker compose up -d db`, set `DATABASE_URL=postgresql://cvparser:cvparser@localhost:5433/cvparser`, and run:
 

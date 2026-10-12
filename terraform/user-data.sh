@@ -28,7 +28,7 @@ OPENAI_API_KEY=${openai_api_key}
 GOOGLE_CLIENT_ID=${google_client_id}
 VITE_GOOGLE_CLIENT_ID=${google_client_id}
 JWT_SECRET=${jwt_secret}
-CORS_ORIGINS=*
+CORS_ORIGINS=
 ALLOWED_EMAIL_DOMAIN=${allowed_email_domain}
 ENVEOF
 
