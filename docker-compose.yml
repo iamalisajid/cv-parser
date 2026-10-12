@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: cvparser
+      POSTGRES_PASSWORD: cvparser
+      POSTGRES_DB: cvparser
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cvparser"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://cvparser:cvparser@db:5432/cvparser
+      # Note: db service internal port is still 5432, only host mapping is 5433
+      CORS_ORIGINS: http://localhost:5173,http://localhost:3000
+    volumes:
+      - .:/app
+      - ./creds:/app/creds
+      - ./cvs:/app/cvs
+      - ./output:/app/output
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  pgdata:

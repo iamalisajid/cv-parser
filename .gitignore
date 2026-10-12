@@ -1,0 +1,33 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+frontend/.env
+frontend/.env.*
+creds/
+service_account.json
+*.pem
+*.key
+*.p12
+*.pfx
+terraform/terraform.tfvars
+terraform/*.tfstate*
+terraform/.terraform/
+
+# Applicant data and generated output
+cvs/
+output/
+processed_rows.json
+sample/*.csv
+!sample/example-workers.csv
+sample/*.pdf
+*.sqlite
+*.sqlite3
+
+# Build and local files
+__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/dist/
+*.egg-info/
+.DS_Store

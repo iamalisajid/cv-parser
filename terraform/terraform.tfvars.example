@@ -1,0 +1,15 @@
+aws_region        = "us-east-1"
+instance_type     = "t3.small"
+db_instance_class = "db.t3.micro"
+db_name           = "cvparser"
+db_username       = "cvparser"
+db_password       = "CHANGE_ME_TO_A_STRONG_PASSWORD"
+ssh_key_name      = "my-key-pair"
+allowed_ssh_cidr  = "0.0.0.0/0"
+openai_api_key    = "REPLACE_ME"
+google_client_id  = ""
+jwt_secret        = "REPLACE_ME_WITH_LONG_RANDOM_VALUE"
+allowed_email_domain = ""
+
+# Optional: set to auto-clone and deploy on EC2 boot
+# app_repo_url    = "https://github.com/your-org/cv-parser.git"
